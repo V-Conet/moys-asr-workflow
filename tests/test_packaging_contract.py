@@ -42,7 +42,6 @@ def _local_import_modules(path: Path, module_name: str) -> set[str]:
             candidate = node.module or ""
         if candidate and _local_module_path(candidate):
             imported.add(candidate)
-            continue
         for alias in node.names:
             child = f"{candidate}.{alias.name}" if candidate else alias.name
             if _local_module_path(child):
